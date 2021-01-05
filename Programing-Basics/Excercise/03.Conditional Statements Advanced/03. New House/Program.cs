@@ -37,45 +37,47 @@ namespace _03._New_House
             {
                 if (typeFlower=="Roses")
                 {
-                    price *= 0.1;
+                    price = price - 0.10 * price;
                 }
             }
-            else if (countFlowers > 90)
+             else if (countFlowers > 90)
             {
                 if (typeFlower == "Dahilas")
                 {
-                    price *= 0.15;
+                    price = 0.85 * price;
                 }
             }
-            else if (countFlowers > 80)
+             else if (countFlowers > 80)
             {
                 if (typeFlower == "Tulips")
                 {
-                    price *= 0.15;
+                    price = price - 0.15 * price;
                 }
             }
-            else if (countFlowers > 90)
+             else if (countFlowers > 90)
             {
                 if (typeFlower == "Dahilas")
                 {
-                    price *= 0.15;
+                    price = price + 0.15 * price;
+                    //price = 1.2*price;
                 }
             }
-            else if (countFlowers < 120)
+           else  if (countFlowers < 120)
             {
                 if (typeFlower == "Narcissus")
                 {
-                    price *= 0.15;
+                    price = price + 0.20 * price;
                 }
             }
-            if (price>budget)
+            if (price>=budget)
             {
-                price -= budget;
-                Console.WriteLine($"Not enough money, you need {price:f2} leva more.");
+                double leftSum = budget - price;
+                Console.WriteLine($"Not enough money, you need {leftSum:f2} leva more.");
             }
             else
             {
-                Console.WriteLine($"Hey, you have a great garden with {countFlowers} {typeFlower} and {price} leva left.");
+                double needSum = price - budget;
+                Console.WriteLine($"Hey, you have a great garden with {countFlowers} {typeFlower} and {needSum:f2} leva left.");
             }
         
             
