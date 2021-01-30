@@ -6,7 +6,22 @@ namespace _12._Even_Number
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            int n = int.Parse(Console.ReadLine());
+
+            do
+            {
+                if (n % 2 == 0)
+                {
+                    Console.WriteLine($"The number is: {Math.Abs(n)}");
+                    break;
+
+                }
+                else
+                {
+                    Console.WriteLine("Please write an even number.");
+                    n = int.Parse(Console.ReadLine());
+                }
+            } while (n != 0);
         }
     }
 }
