@@ -8,7 +8,7 @@ namespace _05._Special_Numbers
         {
             int n = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i < n; i++)
+            for (int i = 1; i < n; i++)
             {
                 int summOfDigits = 0;
                 int digits = i;
