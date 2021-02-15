@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>_4._Reverse_Array_of_Strings</RootNamespace>
+    <RootNamespace>_05._Sum_Even_Numbers</RootNamespace>
   </PropertyGroup>
 
 </Project>
