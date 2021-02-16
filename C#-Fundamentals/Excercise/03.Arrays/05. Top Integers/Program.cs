@@ -7,28 +7,32 @@ namespace _05._Top_Integers
     {
         static void Main(string[] args)
         {
-            int[] arr = Console.ReadLine().Split(" ").Select(int.Parse).ToArray();
-
+            int[] arr = Console.ReadLine().Split(" ")
+                .Select(int.Parse)
+                .
+                ToArray();
             bool isBigger = true;
 
             for (int i = 0; i < arr.Length; i++)
             {
-                int curenntint = arr[i];
-                for (int j = i+1; j < arr.Length; j++)// слагам i+1 за да вземем втория елемент иначе ако не го сложим ще взема curenntint!!
+                int currentInt = arr[i];
+
+                for (int j= i+1; j < arr.Length; j++)
                 {
-                    if (arr[j]>=curenntint)
+                    if (arr[j]>=currentInt)
                     {
                         isBigger = false;
                         break;
                     }
+                
                 }
                 if (isBigger)
                 {
-                    Console.Write(curenntint + " ");
+                    Console.Write(currentInt + " ");
                 }
                 isBigger = true;
-
             }
+
             
         }
     }
