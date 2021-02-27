@@ -6,7 +6,7 @@ namespace _02._Vowels_Count
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine().ToLower;
+            string input = Console.ReadLine().ToLower();
 
            int result =  VolewCount(input);
             Console.WriteLine(result);
