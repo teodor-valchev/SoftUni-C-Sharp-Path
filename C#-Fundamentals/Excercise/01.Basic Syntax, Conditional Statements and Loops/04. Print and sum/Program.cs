@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace _04._Print_and_sum
 {
@@ -11,8 +12,10 @@ namespace _04._Print_and_sum
             int sum = 0;
             for (int i = start; i <= end; i++)
             {
+                Console.Write(i + " ");
                 sum += i;
             }
+            Console.WriteLine();
             Console.WriteLine($"Sum: {sum}");
         }
     }
