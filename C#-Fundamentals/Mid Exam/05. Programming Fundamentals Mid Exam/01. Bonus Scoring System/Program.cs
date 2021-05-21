@@ -31,12 +31,6 @@ namespace _01._Bonus_Scoring_System
 
             Console.WriteLine($"Max Bonus: {maxBonus}.");
             Console.WriteLine($"The student has attended {maxAttendaces} lectures.");
-
         }
     }
 }
-         
-
-        
-    
-
