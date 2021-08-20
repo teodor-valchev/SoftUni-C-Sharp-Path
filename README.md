@@ -1,2 +1,2 @@
-# SoftUni
-My SoftUni homeworks,excercises amd projects
+# SoftUni-C#
+My SoftUni homeworks,excercises and projects
