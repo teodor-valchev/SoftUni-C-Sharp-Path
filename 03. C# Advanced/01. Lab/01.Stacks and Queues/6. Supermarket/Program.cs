@@ -1,35 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace _6._Supermarket
+namespace practise
 {
     class Program
     {
         static void Main(string[] args)
         {
             string name = Console.ReadLine();
-            Queue<string> names = new Queue<string>();
+            Queue<string> queue = new Queue<string>();
 
-
-            while (name != "End")
+            while (true)
             {
-                names.Enqueue(name);
 
-                if (name == "Paid")
+
+                if (name == "End")
                 {
-                    for (int i = 0; i <= names.Count; i++)
+                    break;
+                }
+                else if (name == "Paid")
+                {
+                    while (queue.Count > 0)
                     {
-                        Console.WriteLine(names.Dequeue());
+                        Console.WriteLine(queue.Dequeue());
                     }
-                    names.Clear();
+                    name = Console.ReadLine();
 
                 }
 
-
+                queue.Enqueue(name);
                 name = Console.ReadLine();
             }
 
-            Console.WriteLine($"{names.Count} people remaining.");
+            Console.WriteLine($"{queue.Count} people remaining.");
+
+
         }
     }
 }
