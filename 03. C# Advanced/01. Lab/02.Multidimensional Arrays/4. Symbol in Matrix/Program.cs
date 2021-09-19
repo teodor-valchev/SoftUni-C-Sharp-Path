@@ -1,48 +1,62 @@
 ﻿using System;
 using System.Linq;
 
-namespace _4._Symbol_in_Matrix
+namespace practice
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int size = int.Parse(Console.ReadLine());
+            int input = int.Parse(Console.ReadLine());
+            char[,] matrix = new char[input, input];
 
-            char[,] matrix = new char[size, size];
-            for (int i = 0; i < size; i++)
+
+
+            for (int row = 0; row < matrix.GetLength(0); row++)
             {
-                char[] array = Console.ReadLine()
-                    .ToCharArray();
-                for (int j = 0; j < size; j++)
+                string ascii = Console.ReadLine();
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    matrix[i, j] = array[j];
+                    char[] letters = ascii.ToCharArray();
+                    matrix[row, col] = letters[col];
                 }
             }
+            char symbolToFind = char.Parse(Console.ReadLine());
 
-            string symbol = Console.ReadLine();
-            bool isSymbol = false;
-
-
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            int count = 0;
+            int rows = 0;
+            int cols = 0;
+            for (int row = 0; row < matrix.GetLength(0); row++)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
+
+
+
+                for (int col = 0; col < matrix.GetLength(1); col++)
                 {
-                    if (matrix[i, j].ToString() == symbol)
+                    if (symbolToFind == matrix[row, col])
                     {
-                        Console.WriteLine($"({i}, {j})");
-                        isSymbol = true;
+
+                        count++;
+                        rows = row;
+                        cols = col;
                     }
                 }
 
             }
-
-            if (isSymbol == false)
+            if (count == 0)
             {
-                Console.WriteLine($"{symbol} does not occur in the matrix");
+                Console.WriteLine($"{symbolToFind} does not occur in the matrix");
             }
+            else
+            {
+                Console.WriteLine($"({rows}, {cols})");
+
+            }
+
+
+
 
         }
     }
 }
-

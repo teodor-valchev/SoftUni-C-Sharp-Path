@@ -1,47 +1,38 @@
 ﻿using System;
+using System.Linq;
 
-namespace _7._Pascal_Triangle
+namespace practice
 {
     class Program
     {
         static void Main(string[] args)
         {
             int n = int.Parse(Console.ReadLine());
+            int[][] pascal = new int[n][];
 
-            long[][] pascal = new long[n][];
-
-            for (int row = 0; row < n; row++)
+            for (int i = 0; i < n; i++)
             {
-                pascal[row] = new long[row + 1];
+                pascal[i] = new int[i + 1];
+            }
 
-                for (int col = 0; col < row + 1; col++)
+            for (int i = 0; i < n; i++)
+            {
+                pascal[i][0] = 1;
+                pascal[i][pascal[i].Length - 1] = 1;
+
+                for (int j = 1; j < pascal[i].Length - 1; j++)
                 {
-                    long sum = 0;
-                    if (row - 1 >= 0 && col < pascal[row - 1].Length)
-                    {
-                        sum += pascal[row - 1][col];
-                    }
-                    if (row - 1 >= 0 && col - 1 >= 0)
-                    {
-                        sum += pascal[row - 1][col - 1];
-                    }
-
-                    if (sum == 0)
-                    {
-                        sum = 1;
-                    }
-                    pascal[row][col] = sum;
+                    pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
                 }
             }
 
-            for (int row = 0; row < pascal.Length; row++)
+            for (int i = 0; i < n; i++)
             {
-                for (int col = 0; col < pascal[row].Length; col++)
-                {
-                    Console.Write(pascal[row][col] + " ");
-                }
-                Console.WriteLine();
+                Console.WriteLine(string.Join(" ", pascal[i]));
             }
+
+
+
 
         }
     }
