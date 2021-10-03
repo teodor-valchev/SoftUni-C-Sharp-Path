@@ -13,7 +13,7 @@ namespace CarManufacturer
             private double fuelQuantity;
             private double fuelConsumption;
             private int horsePower;
-            private double cubicCapacity;         
+            private double cubicCapacity;
             private double pressure;
 
 
@@ -85,20 +85,39 @@ namespace CarManufacturer
 
         public static void Main(string[] args)
         {
-       
-            var tires = new Tire[4]
+            string command = Console.ReadLine();
+
+            while (command!= "No more tires")
+            {
+                string[] tokens = command.Split(" ",StringSplitOptions.RemoveEmptyEntries);
+                
+                for (int i = 0; i < tokens.Length; i++)
                 {
-                    new Tire(1,2.5),
-                    new Tire(1,2.1),
-                    new Tire(1,0.5),
-                    new Tire(1,2.3),
-                };
+                    int year = int.Parse(tokens[0]);
+                    double pressure = double.Parse(tokens[1]);
+                    Tire tire = new Tire(year, pressure);
+                }
 
-            Engine engine = new Engine(560, 6300);
 
-            Car car = new Car("Lamborghini", "Urus", 2010, 250, 9, engine, tires);
-         
-           
+                command = Console.ReadLine();
+            }
+
+            command = Console.ReadLine();
+
+            while (command != "Engines done")
+            {
+                string[] tokens = command.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+                for (int i = 0; i < tokens.Length; i++)
+                {
+                    int horsePower = int.Parse(tokens[0]);
+                    double cubicCapacity = double.Parse(tokens[1]);
+                    Engine engine = new Engine(horsePower, cubicCapacity);
+                }
+
+
+                command = Console.ReadLine();
+            }
         }
     }
 }
