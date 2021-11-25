@@ -18,6 +18,7 @@ namespace SpaceStation.Models.Astronauts.Contracts
             Name = name;
             Oxygen = oxygen;
             items = new List<string>();
+            Bag = new Backpack();
         }
 
         public string Name
@@ -61,7 +62,7 @@ namespace SpaceStation.Models.Astronauts.Contracts
 
 
 
-     public Backpack  Bag {get;}
+     public Backpack  Bag { get; private set; }
 
         public virtual void Breath()
         {

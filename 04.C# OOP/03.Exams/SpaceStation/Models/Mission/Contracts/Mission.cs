@@ -7,33 +7,38 @@ using System.Text;
 
 namespace SpaceStation.Models.Mission.Contracts
 {
-   public class Mission : IMission
+    public class Mission : IMission
     {
         public void Explore(IPlanet planet, ICollection<IAstronaut> astronauts)
         {
+            var planetItems = planet.Items;
             foreach (var astr in astronauts)
             {
-                if (astr.CanBreath==false)
+                if (astr.CanBreath == false)
                 {
                     break;
                 }
-                var planetsItems = planet.Items.ToList();
 
-                foreach (var item in planetsItems)
+                while (planetItems.Count > 0)
                 {
+                    var item = planetItems.FirstOrDefault();
+                    if (item == null)
+                    {
+                        return;
+                    }
                     astr.Bag.Items.Add(item);
                     astr.Breath();
-                    planetsItems.Remove(item);
-
-                    if (astr.CanBreath==false)
+                    if (astr.CanBreath == false)
                     {
-                        continue;
+                        break;
                     }
+                    planetItems.Remove(item);
                 }
-              
+
+
             }
-              
-            
+
+
         }
     }
 }

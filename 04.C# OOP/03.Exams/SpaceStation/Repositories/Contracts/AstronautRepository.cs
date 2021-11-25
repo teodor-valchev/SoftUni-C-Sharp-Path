@@ -8,8 +8,13 @@ namespace SpaceStation.Repositories.Contracts
 {
     public class AstronautRepository : IRepository<IAstronaut>
     {
-        private List<IAstronaut> astronauts = new List<IAstronaut>();
+        private List<IAstronaut> astronauts;
         public IReadOnlyCollection<IAstronaut> Models => astronauts.AsReadOnly();
+
+        public AstronautRepository()
+        {
+            astronauts = new List<IAstronaut>();
+        }
 
         public void Add(IAstronaut astronaut)
         {
@@ -27,6 +32,6 @@ namespace SpaceStation.Repositories.Contracts
         }
 
         public bool Remove(IAstronaut astronaut) => astronauts.Remove(astronaut);
-      
+
     }
 }
