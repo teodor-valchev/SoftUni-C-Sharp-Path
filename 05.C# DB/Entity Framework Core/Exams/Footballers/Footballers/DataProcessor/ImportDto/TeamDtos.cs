@@ -13,7 +13,7 @@ namespace Footballers.DataProcessor.ImportDto
         [JsonProperty("Name")]
         [Required]
         [StringLength(40), MinLength(3)]
-       /* [RegularExpression(@"([a-zA-Z]+|\d|\s|[.]|[-])")]*/
+        [RegularExpression(@"[a-zA-Z\d\s.-]+")]
         public string Name { get; set; }
 
         [JsonProperty("Nationality")]

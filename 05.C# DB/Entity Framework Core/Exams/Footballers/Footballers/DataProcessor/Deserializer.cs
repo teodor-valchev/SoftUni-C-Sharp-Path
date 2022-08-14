@@ -97,8 +97,9 @@
                     
 
                 }
-                sb.AppendLine(String.Format(SuccessfullyImportedCoach, coach.Name, realCoach.Footballers.Count));
                 theValidCoaches.Add(realCoach);
+                sb.AppendLine(String.Format(SuccessfullyImportedCoach, coach.Name, realCoach.Footballers.Count));
+              
             }
 
             context.Coaches.AddRange(theValidCoaches);
@@ -159,9 +160,9 @@
 
 
                 }
-
-                sb.AppendLine($"Successfully imported team - {team.Name} with {team.TeamsFootballers.Count} footballers.");
                 validTeams.Add(team);
+                sb.AppendLine($"Successfully imported team - {team.Name} with {team.TeamsFootballers.Count} footballers.");
+              
             }
 
 

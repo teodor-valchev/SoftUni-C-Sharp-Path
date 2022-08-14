@@ -17,7 +17,7 @@ namespace Footballers.Data.Models
 
         [Required]
         [StringLength(40),MinLength(3)]
-        [RegularExpression(@"([a-zA-Z]+|\d|\s|[.]|[-])")]
+        [RegularExpression(@"[a-zA-Z\d\s.-]+")]
         public string Name { get; set; }
 
         [Required]
@@ -33,7 +33,5 @@ namespace Footballers.Data.Models
     }
 
 
-  /*  •	
-•	TeamsFootballers – collection of type TeamFootballer*/
 
 }
