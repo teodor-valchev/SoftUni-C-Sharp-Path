@@ -1,0 +1,12 @@
+﻿@model ProductsViewModel
+@{
+    ViewBag.Title = "Number" + Model.Id;
+}
+
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">@Model.Name @Model.Price - @Model.Id</li>
+  </ul>
+</div>
+
+
